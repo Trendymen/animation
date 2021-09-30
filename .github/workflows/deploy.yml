@@ -1,0 +1,33 @@
+name: auto deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: 1. set environment
+        uses: actions/setup-node@v2.4.1
+        with:
+          node-version: 16
+      - name: 2. install dep
+        run: |
+          rm -rf node_modules
+          yarn --frozen-lockfile
+          yarn build
+        env:
+          CI: true
+
+      - name: 3. deploy to github pages
+        uses: peaceiris/actions-gh-pages@v3.7.3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+
+
+
