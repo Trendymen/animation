@@ -1,0 +1,27 @@
+{
+  "name": "animation",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": ["animation"],
+  "license": "",
+  "author": "",
+  "scripts": {
+    "build": "parcel build index.html",
+    "dev": "parcel index.html --open",
+    "start": "npm run build && npm run dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "three": "^0.132.2",
+    "gsap": "^3.8.0"
+  },
+  "devDependencies": {
+    "@parcel/config-default": "^2.0.0-rc.0",
+    "@parcel/packager-raw-url": "^2.0.0-rc.0",
+    "@parcel/transformer-image": "^2.0.0-rc.0",
+    "@parcel/transformer-raw": "^2.0.0-alpha.3",
+    "@parcel/transformer-webmanifest": "^2.0.0-rc.0",
+    "parcel": "next",
+    "prettier": "^2.4.1"
+  }
+}
